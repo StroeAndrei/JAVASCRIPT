@@ -8,6 +8,7 @@ de vedere grafic (histograma) distributiile de probabilitate:<br/>
 <br/><br/>
 1. Normala<br/>
 ![variabila aleatoare normala](/screenshots/norm.PNG)<br/><br/>
+![venv activate](https://github.com/StroeAndrei/AplicatieLicentaAutoevaluareStudent/blob/master/resursePentruAplicatie/Instructiuni/c2.PNG)<br/><br/>
 2. Lognormala<br/>
 ![variabila aleatoare lognormala](https://github.com/StroeAndrei/JAVASCRIPT/tree/main/Projects/DistributiiDeProbabilitate/screenshots/lognorm.PNG)<br/><br/>
 3. Bernoulli<br/>
