@@ -15,4 +15,6 @@ de vedere grafic (histograma) distributiile de probabilitate:<br/>
 4. Binomiala<br/>
 ![variabila aleatoare binomiala](https://github.com/StroeAndrei/JAVASCRIPT/tree/main/Projects/DistributiiDeProbabilitate/screenshots/binom.png)<br/><br/>
 
-![variabila aleatoare binomiala](https://github.com/StroeAndrei/JAVASCRIPT/tree/main/Projects/DistributiiDeProbabilitate/screenshots/binom.png)
+![variabila aleatoare binomiala](https://github.com/StroeAndrei/JAVASCRIPT/blob/main/Projects/DistributiiDeProbabilitate/screenshots/binom.PNG)
+
+
