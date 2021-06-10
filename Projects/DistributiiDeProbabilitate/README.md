@@ -1,8 +1,10 @@
-# Program construit pentru cursul Tehnici de Simulare
+# Aplicatie construita pentru cursul Tehnici de Simulare
 Sunt generate cateva tipuri de variabile aleatoare si afisate din punct 
-de vedere grafic (histograma) distributiile de probabilitate:<br/>
-- normala
-- lognormala
+de vedere grafic (histograma) distributiile de probabilitate. Este utilizata 
+libraria plotly disponibila la adresa [Plotly](https://plotly.com/javascript/)
+pentru generarea histogramei.<br/>
+- normala (0,1)
+- lognormala (2,3)
 - bernoulli
 - binomiala prin doua metode
 <br/><br/>
