@@ -1,4 +1,4 @@
-# Aplicatie construita pentru cursul Dezvoltarea Aplicatiilor Web
+# Joc Snake in Browser Web
 ### Tehnologii folosite: javascript, html, css
 Este un joc clasic foarte cunoscut, Snake, construit folosind tehnologii specifice 
 dezvoltarii aplicatiilor web.<br/><br/>
