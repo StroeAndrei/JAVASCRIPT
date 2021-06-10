@@ -1,5 +1,6 @@
-# Aplicatie construita pentru cursul Tehnici de Simulare
-Sunt generate cateva tipuri de variabile aleatoare si afisate din punct 
+# Aplicatie construita pentru vizualizarea distributiei unor variabile aleatoare
+### Tehnologii folosite: html, css, javascript, libraria plotly
+Sunt generate cateva tipuri de variabile aleatoare si sunt afisate din punct 
 de vedere grafic (histograma) distributiile de probabilitate. Este utilizata 
 libraria plotly disponibila la adresa [Plotly](https://plotly.com/javascript/)
 pentru generarea histogramei.<br/>
