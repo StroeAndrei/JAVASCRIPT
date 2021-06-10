@@ -2,8 +2,7 @@
 ### Tehnologii folosite: html, css, javascript, libraria plotly
 Sunt generate cateva tipuri de variabile aleatoare si sunt afisate din punct 
 de vedere grafic (histograma) distributiile de probabilitate. Este utilizata 
-libraria plotly disponibila la adresa [Plotly](https://plotly.com/javascript/)
-pentru generarea histogramei.<br/>
+libraria plotly disponibila la adresa [Plotly](https://plotly.com/javascript/).<br/>
 - normala (0,1)
 - lognormala (2,3)
 - bernoulli
