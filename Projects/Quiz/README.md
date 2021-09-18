@@ -1,4 +1,4 @@
-# Snake - Web Browser Game
+# Quiz
 ### Tehnologii folosite: javascript, html, css
 Quiz construit cu tehnologiile enumerate (4 variante de raspuns si un singur raspuns corect).<br/><br/>
 
