@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        
+<div id="content">
+    <header>
+        <div class="title">
+            <div>
+                <img src="images/question_mark_1.png" alt="question mark">
+            </div>
+            <h1>Quiz</h1>
+            <div>
+                <img src="images/question_mark_1.png" alt="question mark">
+            </div>
+        </div>
+    </header>
+
+    <button id="homeBtn" type="button"> Acceseaza Pagina Initiala</button>
+
+    <section id="score">
+        <p>Scor: <span id="score-value"></span></p>
+    </section>
+
+    <section class="question">
+        <div class="button-container">
+            <button type="button" id="start" class="pulse"></button>
+        </div>
+        <p class="hide" id="qst-content"></p>
+    </section>
+            
+    <section id="answers">
+        <div class="answer" id="ansA"></div>
+        <div class="answer" id="ansB"></div>
+        <div class="answer" id="ansC"></div>
+        <div class="answer" id="ansD"></div>
+    </section>
+
+    <div class="button-container">
+        <button type="button" id="next">Urmatoarea</button>
+    </div>
+
+    <div class="button-container">
+        <button type="button" id="final">Afiseaza Scor Final</button>
+    </div>
+
+    <button id="editBtn" type="button">
+        <img src="images/settings.png" alt="settings">
+        <span class="settings-text">Setari</span>
+    </button>            
+
+</div>
+
+<div id="editPage">
+    <h2>Editeaza Intrebari</h2>
+
+    <button type="button" id="backBtn">Inapoi</button>
+
+    <table id="questionsTable">
+        <thead>
+            <tr>
+                <th>Intrebare</th>
+                <th>Raspunsul A</th>
+                <th>Raspunsul B</th>
+                <th>Raspunsul C</th>
+                <th>Raspunsul D</th>
+                <th>Corect</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+        
+<script src="main.js"></script>
+
+</body>
+</html>

@@ -50,13 +50,13 @@ function execute () {
     var small = [400, 400, 40];
 
     // setam valori implicite pentru culoarea de fundal a labirintului
-    var initialBgColor = "#F2AA4CFF";
-    var blue = "#6C59C4FF";
-    var green = "#2BAE66FF";
+    var initialBgColor = "#F2AA4C";
+    var blue = "#6C59C4";
+    var green = "#2BAE66";
     var beige = "#F9E4B7";
     var transparent = "#efefef";
     
-    var initialGridColor = "#616247ff";
+    var initialGridColor = "#616247";
     var black = "#000";
     var red = "red";
     var white = "#fff";
