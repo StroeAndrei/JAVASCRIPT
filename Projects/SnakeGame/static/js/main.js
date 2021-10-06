@@ -4,43 +4,43 @@ window.onload = init;
 function init() {
 
     // Construim elementul canvas si setam contextul la 2D
-    var canvas = document.getElementById("gameCanvas");
-    var ctx = canvas.getContext("2d");
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
 
     // Initial ascundem sectiunea pentru game over
-    var gameOverSection = document.getElementById("game-over-section");
+    const gameOverSection = document.getElementById("game-over-section");
     gameOverSection.style.display = "none";
 
     // Sectiunea ce cuprinde fereastra jocului
-    var gameSection = document.getElementById("game-section");
+    const gameSection = document.getElementById("game-section");
 
     // Butonul de restart
-    var restartBtn = document.getElementById("restart");
+    const restartBtn = document.getElementById("restart");
 
     // Setam numarul de celule si dimensiunea
-    var cellSize = 40;
-    var nrOfCells = 25;
+    let cellSize = 40;
+    let nrOfCells = 25;
 
     // Setam dimensiunea elementului canvas
     canvas.height = cellSize * nrOfCells;
     canvas.width = cellSize * nrOfCells;
 
     // Definim cheia directionala (up, down, left, right)
-    var keyPressed = "";
+    let keyPressed = "";
 
     // Sectiunea scorului
-    var scoreElem = document.getElementById("score");
-    var score = 0;
+    const scoreElem = document.getElementById("score");
+    let score = 0;
 
     // Definim cele patru directii posibile
-    var [movingUp, movingDown, movingLeft, movingRight] = [false, false, false, false];
+    let [movingUp, movingDown, movingLeft, movingRight] = [false, false, false, false];
 
     /**
      * Identificam sageata folosita de utilizator pe tastatura
      * Valorile sunt "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"
      */
-    document.addEventListener("keydown", e => {
-        switch(e.key) {
+    document.addEventListener("keydown", (el) => {
+        switch(el.key) {
             case 'ArrowUp':
                 keyPressed = "up";
                 break;
@@ -110,7 +110,7 @@ function init() {
             }
         }
 
-        // Functie pentru deplasare snake
+        // Metoda pentru deplasare snake
         move(direction) {
             // Se va deplasa daca contine cel putin o celula
             if(this.body.length >= 1) {
@@ -199,18 +199,19 @@ function init() {
      * patratelele sunt in pozitie para ori impara
      */
     function colorCanvasSquares(colorForEven, colorForOdd) {
-        var cellList = [];
+        let cellList = [];
 
         for(let i = 0; i < canvas.width / cellSize; i++) {
             for(let j = 0; j < canvas.height / cellSize; j++) {
-                var bkcolor = "";
+                let bkcolor = "";
                 if((i + j) % 2 == 0) {
                     bkcolor = colorForEven;
                 } else {
                     bkcolor = colorForOdd;
                 }
 
-                var cl = new Cell(i * cellSize, j * cellSize, cellSize, bkcolor);
+                // Atasam o celula noua la spatiul de joc
+                let cl = new Cell(i * cellSize, j * cellSize, cellSize, bkcolor);
                 cellList.push(cl);
                 cl.drawCell(ctx);
             }
@@ -315,7 +316,7 @@ function init() {
         }
 
         // Instantiem o noua celula food si generam imaginea de background
-        var food = new SnakeFood(ctx, foodCell);
+        let food = new SnakeFood(ctx, foodCell);
         food.drawPartAsImage();
 
         /**
@@ -349,9 +350,9 @@ function init() {
         canvas.height = cellSize * nrOfCells;
         canvas.width = cellSize * nrOfCells;
 
-        var keyPressed = "";
+        let keyPressed = "";
 
-        var [movingUp, movingDown, movingLeft, movingRight] = [false, false, false, false];
+        let [movingUp, movingDown, movingLeft, movingRight] = [false, false, false, false];
 
         snake = new Snake(snakeHead);
     }
