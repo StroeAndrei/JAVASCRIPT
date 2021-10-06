@@ -1,33 +1,32 @@
-// Executam cod dupa ce fereastra incarca toate elementele
+// Executam cod dupa ce sunt incarcate toate elementele
 window.onload = init;
 
-//initializam programul
+// Initializam programul
 function init() {
 
-//obtinem elementul canvas
+// Obtinem elementul canvas
 var canvasElement = document.getElementById("mazeCanvas"); // Identificam elementul Canvas
 var context = canvasElement.getContext("2d"); // Ne ofera posibilitatea de a utiliza instrumentele 2D pe elementul Canvas
 
-//obtinem butonul de start
+// Obtinem butonul de start
 var startBtn = document.getElementById("startBtn");
 
-//obtinem butonul de reset
+// Obtinem butonul de reset
 var resetBtn = document.getElementById("resetBtn");
 
-// Obtinem elementul ce genereaza meniul de optiuni grafice din dreapta
+// Obtinem elementul ce genereaza meniul de optiuni grafice
 var graphOptions = document.getElementById("graphMenuBtn");
 
 // Obtinem meniul grafic din sectiunea dreapta
 var rightGraphMenu = document.getElementById("right-optionalMenu");
 
-//functie ce executa jocul - labirint
+// Functie ce executa jocul - labirint
 function execute () {
-    //afisam containerul pentru labirint
+    // Afisam containerul pentru labirint
     document.getElementById("mazeContainer").style.visibility = "visible";
 
-    // variabile folosite pentru a seta dimensiunea labirintului si viteza 
+    // Variabile folosite pentru a seta dimensiunea labirintului si viteza 
     // de parcurgere cat si culoarea de fundal aleasa de utilizator
-
     var selectedFps;
     var selectedSize;
     var selectedWidth;
@@ -42,14 +41,13 @@ function execute () {
     var getFps = document.getElementsByName("speed");
     var getSize = document.getElementsByName("dim");
 
-    // setam valori implicite pentru dimensiunea labirintului
+    // Setam valori implicite pentru dimensiunea labirintului
     // [width, height, cellsize] pentru large, medium, small
-
     var large = [600, 600, 20];
     var medium = [500, 500, 20];
     var small = [400, 400, 40];
 
-    // setam valori implicite pentru culoarea de fundal a labirintului
+    // Setam valori implicite pentru culoarea de fundal a labirintului
     var initialBgColor = "#F2AA4C";
     var blue = "#6C59C4";
     var green = "#2BAE66";
@@ -64,7 +62,6 @@ function execute () {
 
     // Obtinem valoarea setata de utilizator pentru
     // dimensiunea labirintului
-
     for(let i = 0; i < sizeOptions; i++) {
         if(getSize[i].checked) {
             selectedSize = getSize[i].value;
@@ -73,7 +70,6 @@ function execute () {
 
     // In functie de optiunea selectata de utilizator pentru dimensiunea labirintului
     // alegem valorile din tabloul predefinit
-
     if(selectedSize == "small") {
         selectedWidth = small[0];
         selectedHeight = small[1];
@@ -89,13 +85,11 @@ function execute () {
     }
 
     // Setam dimensiunea elementului canvas in functie de optiunea utilizatorului
-
     canvasElement.width = selectedWidth;
     canvasElement.height = selectedHeight;
 
     // Setam viteza de rulare a algoritmului in functie de valoarea 
     // precizata de utilizator (functia setInterval(f, fps))
-
     for(let i = 0; i < fpsOptions; i++) {
         if(getFps[i].checked) {
             selectedFps = getFps[i].value;
@@ -103,7 +97,6 @@ function execute () {
     }
 
     // Obtinem valoarea setata de utilizator pentru culoarea fundalului
-
     var getBgColor = getBgCl.options[getBgCl.selectedIndex].value;
 
     switch(getBgColor) {
@@ -125,7 +118,6 @@ function execute () {
     }
 
     // Obtinem valoarea setata de utilizator pentru culoarea gridului
-
     var getGridColor = getGridCl.options[getGridCl.selectedIndex].value;
 
     switch(getGridColor) {
@@ -147,7 +139,6 @@ function execute () {
     }
 
     // Initializam Labirintul cu valorile setate de utilizator
-
     runMaze(context, selectedFps, selectedWidth, selectedHeight, selectedCellSize, selectedBgColor, selectedGridColor);
 
     canvasElement.style.borderColor = selectedGridColor;
@@ -169,7 +160,7 @@ resetBtn.onclick = function() {
     location.reload();
 }
 
-// Afisam si ascundem meniul corespunzator butonului de grafica
+// Afisam si ascundem meniul corespunzator butonului pentru grafica
 graphOptions.onclick = function() {
     rightGraphMenu.style.visibility = "visible";
 }
@@ -180,19 +171,19 @@ rightGraphMenu.onmouseleave = function() {
 
 function runMaze(context, fps, selectedWidth, selectedHeight, selectedCellSize, selectedBgColor, selectedGridColor) {
 
-    //dimensiunea unei celule
+    // Dimensiunea unei celule
     var cellSize = selectedCellSize;
     
-    //numarul de randuri si de coloane
+    // Numarul de randuri si de coloane
     var rows, columns;
     
-    //array ce contine obiectele Celula
+    // Array ce contine obiectele Celula
     var cellList = [];
     
-    //celula curenta
+    // Celula curenta
     var currentCell;
     
-    //stiva pt celule
+    // Stiva pentru celule
     var stack = [];
     
     function setMaze() {
@@ -200,8 +191,8 @@ function runMaze(context, fps, selectedWidth, selectedHeight, selectedCellSize, 
         rows = selectedHeight / cellSize;
         columns = selectedWidth / cellSize;
     
-        // adaugam toate celulele ca obiecte intr-o lista
-        // identificam celulele prin coordonatele x si y
+        // Adaugam toate celulele ca obiecte intr-o lista
+        // Identificam celulele prin coordonatele x si y
         for(let i = 0; i < rows; i++) {
             for(let j = 0; j < columns; j++) {
                 let cell = new makeCell(context, "green", cellSize, j * cellSize, i * cellSize);
@@ -209,41 +200,41 @@ function runMaze(context, fps, selectedWidth, selectedHeight, selectedCellSize, 
             }
         }
     
-        //celula 0,0 va fi celula initiala
+        // Celula 0,0 va fi celula initiala
         currentCell = cellList[0];
     }
     
     setMaze();
     
     function run() {
-        //generam toate celulele grafic
+        // Generam toate celulele grafic
         for(var i = 0; i < cellList.length; i++) {
             cellList[i].show();
         }
     
-        //setam celula curenta ca fiind marcata (0, 0)
+        // Setam celula curenta ca fiind marcata (0, 0)
         currentCell.marked = true;
     
-        //desenam grafic celula curenta
+        // Desenam grafic celula curenta
         currentCell.highlightCurrentCell("red");
         
-        //verificam vecinii celulei curente si setam urmatoarea celula
+        // Verificam vecinii celulei curente si setam urmatoarea celula
         var nextCell = currentCell.verifyNeighbors();
     
-        //DACA am o celula vecina nemarcata, o selectez, o marchez si o
-        //transform in celula curenta
+        // DACA am o celula vecina nemarcata, o selectez, o marchez si o
+        // transform in celula curenta
         if(nextCell) {
             nextCell.marked = true;
-            //adaugam celula curenta pe stiva
+            // Adaugam celula curenta pe stiva
             stack.push(currentCell);
-            //stergem marginile dintre celula curenta si celula urmatoare
+            // Stergem marginile dintre celula curenta si celula urmatoare
             deleteWallBetweenCells(currentCell, nextCell, cellSize);
-            //setam celula urmatoare ca celula curenta
+            // Setam celula urmatoare ca celula curenta
             currentCell = nextCell;
         } else if(stack.length > 0) { //DACA nu am o celula vecina pe care o pot marcata; De asemenea verific ca stiva sa nu fie goala
-            //Backtracking
-            //Scoatem o celula de pe stiva
-            //Transforma celula scoasa de pe stiva in celula curenta
+            // Backtracking
+            // Scoatem o celula de pe stiva
+            // Transforma celula scoasa de pe stiva in celula curenta
             currentCell = stack.pop();
         }
     }
@@ -279,12 +270,12 @@ function runMaze(context, fps, selectedWidth, selectedHeight, selectedCellSize, 
         return j + i * columns;
     }
     
-    //functie pentru a sterge marginile dintre celule
-    //1 0 -1 pe randuri si 	1 pe coloane
+    // Functie pentru a sterge marginile dintre celule
+    // 1 0 -1 pe randuri si 	1 pe coloane
     //						0
     //         			   -1
-    //Row -> 1 = se deplaseaza la stanga; -1 se deplaseaza la drepta
-    //Col -> 1 = se deplaseaza deasupra; -1 se deplaseaza dedesubt
+    // Row -> 1 = se deplaseaza la stanga; -1 se deplaseaza la drepta
+    // Col -> 1 = se deplaseaza deasupra; -1 se deplaseaza dedesubt
     function deleteWallBetweenCells(currentCell, nextCell, cellSize) {
         var rowCoord = (currentCell.x / cellSize) - (nextCell.x / cellSize);
             
@@ -346,7 +337,7 @@ function runMaze(context, fps, selectedWidth, selectedHeight, selectedCellSize, 
                 drawLine(x, y + size, x, y, selectedGridColor, 4);
             }
     
-            // daca celula a fost vizitata, ii schimbam culoarea
+            // Daca celula a fost vizitata, ii schimbam culoarea
             if(this.marked) {
                 drawSquare(xAxis, yAxis, size, selectedBgColor);
             }
