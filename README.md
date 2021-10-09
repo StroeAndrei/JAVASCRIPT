@@ -1,4 +1,4 @@
 # Javascript
-### Exercitii
-### Proiecte
-### Subiecte diverse
+### Exercises
+### WorkInProgressProjects
+### Topics
